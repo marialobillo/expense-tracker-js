@@ -30,6 +30,7 @@ function addExpense(e){
     }
 
     document.getElementById('expForm').reset();
+    showExpenses();
 }
 
 function showExpenses(){
@@ -45,10 +46,23 @@ function showExpenses(){
                 <td>${expenses[i].name}</td>
                 <td>${expenses[i].date}</td>
                 <td>$${expenses[i].amount}</td>
-                <td>Delete</td>
+                <td><a class="deleteButton" onclick="deleteExpense(${expenses[i].id})">
+                    Delete</td>
             </tr>
         `;
     }
+}
+
+function deleteExpense(id){
+    for(let i = 0; i < expenses.length; i++){
+        if(expenses[i].id == id){
+            expenses.splice(i, 1);
+        }
+    }
+
+    // localStorage
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+    showExpenses();
 }
 
 showExpenses();
