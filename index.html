@@ -7,6 +7,46 @@
     <title>Expense Tracker App</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Expenser Tracker App</h1>
+    <header>
+
+    <section>
+        <div class="form">
+            <form id="formExp">
+                <div class="formLine">
+                    <span for="type">Type:</span>
+                    <select id="type">
+                        <option value="card">Card</option>
+                        <option value="cash">Cash</option>
+                        <option value="cryptocoin">Cryptocoin</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span for="name">Name:</span>
+                    <input type="text" id="name">
+                </div>
+
+                <div class="formLine">
+                    <span for="date">Date:</span>
+                    <input type="date" id="date">
+                    <span for="amount">Amount:</span>
+                    <input type="text" id="amount">
+                </div>
+                <button type="submit" class="buttonSave">Add a new expense</button>
+            </form>
+        </div>
+    </section>
+    <section>
+        <table class="table">
+            <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Options</th>
+            </tr>
+            <td></td>
+        </table>
+    </section>
 </body>
 </html>
