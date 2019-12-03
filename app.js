@@ -32,4 +32,23 @@ function addExpense(e){
     document.getElementById('expForm').reset();
 }
 
-console.log(expenses);
+function showExpenses(){
+
+    const expenseTable = document.getElementById('expenseTable');
+
+    expenseTable.innerHTML = '';
+
+    for(let i = 0; i < expenses.length; i++){
+        expenseTable.innerHTML += `
+            <tr>
+                <td>${expenses[i].type}</td>
+                <td>${expenses[i].name}</td>
+                <td>${expenses[i].date}</td>
+                <td>$${expenses[i].amount}</td>
+                <td>Delete</td>
+            </tr>
+        `;
+    }
+}
+
+showExpenses();
