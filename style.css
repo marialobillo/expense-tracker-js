@@ -1,0 +1,55 @@
+*{
+    margin:0;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body{
+    background:#69A7BF;
+    color:#F2CB05;
+}
+
+.title{
+    width: 500px;
+    color:#F2E205;
+    margin:3% auto;
+}
+
+.content{
+    width: 600px;
+    margin: 0 auto;
+}
+
+.secondTitle{
+    text-align:left;
+    margin: 2% 0;
+    font-weight: 100;
+}
+
+.form{
+    padding: 5px;
+}
+
+.formLine{
+    padding: 5px 0px;
+}
+
+input, select{
+    width: 130px;
+    margin-right: 20px;
+}
+
+.table{
+    border: 1px;
+}
+
+button{
+  color:#F2D49B; 
+  padding: 15px;
+  text-align: center;
+  line-height: 20px;
+  width: 200px;
+  background-color: #034C8C;
+  border-radius: 5px;
+  margin: 8px auto;
+  border-bottom: 0 3px #69A7BF;
+}
