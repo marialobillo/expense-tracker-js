@@ -4,19 +4,22 @@
 }
 
 body{
-    background:#69A7BF;
-    color:#F2CB05;
+    background:#042159;
+    color:#77D9AB;
 }
 
 .title{
     width: 500px;
-    color:#F2E205;
+    color:#0869A6;
     margin:3% auto;
 }
 
 .content{
-    width: 600px;
+    width: 580px;
     margin: 0 auto;
+    background-color:#0869A6;
+    padding: 3%;
+    padding-left: 6%;
 }
 
 .secondTitle{
@@ -38,18 +41,24 @@ input, select{
     margin-right: 20px;
 }
 
-.table{
-    border: 1px;
+/* table style */
+table{
+    width: 100%;
+}
+td{
+    background: #D7D7D9;
+    padding: 4px 8px;
+    color:#042159;
 }
 
 button{
-  color:#F2D49B; 
-  padding: 15px;
-  text-align: center;
-  line-height: 20px;
-  width: 200px;
-  background-color: #034C8C;
-  border-radius: 5px;
-  margin: 8px auto;
-  border-bottom: 0 3px #69A7BF;
+    width: 200px;
+    color:#fff; 
+    padding: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 20px;
+    background-color: #04BF8A;
+    border-radius: 5px;
+    margin: 14px 25%;
 }
