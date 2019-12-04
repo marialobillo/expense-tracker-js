@@ -33,23 +33,35 @@ body{
 }
 
 .formLine{
+    display: inline-flex;
     padding: 5px 0px;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float:right;
+    margin-right: 100px;
 }
 
 input, select{
     width: 130px;
-    margin-right: 20px;
+    margin-left: 10px;
 }
 
 /* table style */
 table{
     width: 100%;
 }
-td{
-    background: #D7D7D9;
-    padding: 4px 8px;
-    color:#042159;
+
+thead{
+    background-color:#042159;
+    line-height: 30px;
 }
+
+/* Button */
 
 button{
     width: 200px;
@@ -61,4 +73,10 @@ button{
     background-color: #04BF8A;
     border-radius: 5px;
     margin: 14px 25%;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: underline;
+    cursor: pointer;
 }
