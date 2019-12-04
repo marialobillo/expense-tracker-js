@@ -33,7 +33,7 @@ function addExpense(e){
     showExpenses();
 }
 
-function showExpenses(){
+const showExpenses = () => {
 
     const expenseTable = document.getElementById('expenseTable');
 
@@ -53,7 +53,7 @@ function showExpenses(){
     }
 }
 
-function deleteExpense(id){
+const deleteExpense = (id) => {
     for(let i = 0; i < expenses.length; i++){
         if(expenses[i].id == id){
             expenses.splice(i, 1);
