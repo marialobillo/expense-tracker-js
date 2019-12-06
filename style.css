@@ -49,7 +49,9 @@ body{
 input, select{
     width: 130px;
     margin-left: 10px;
+    cursor: text;
 }
+
 
 /* table style */
 table{

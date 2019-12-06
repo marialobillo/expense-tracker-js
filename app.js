@@ -1,21 +1,20 @@
-document.getElementById('expForm').addEventListener('submit', addExpense);
+(function(){
 
-// initial array of expenses, reading from localStorage
-const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+    // initial array of expenses, reading from localStorage
+    const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
 
-function addExpense(e){
-    e.preventDefault();
+    document.getElementById('expForm').addEventListener('submit', function(e){
 
-    // get type, name, date, and amount
-    let type = document.getElementById('type').value;
-    let name = document.getElementById('name').value;
-    let date = document.getElementById('date').value;
-    let amount = document.getElementById('amount').value;
+        e.preventDefault();
 
-    if(type != 'chooseOne' 
-        && name.length > 0 
-        && date != 0 
-        && amount > 0){
+        // get type, name, date, and amount
+        let type = document.getElementById('type').value;
+        let name = document.getElementById('name').value;
+        let date = document.getElementById('date').value;
+        let amount = document.getElementById('amount').value;
+
+        if(type == 'chooseOne' || name.length <= 0 || date == '' ) {return;}
+
         const expense = {
             type, 
             name, 
@@ -27,42 +26,66 @@ function addExpense(e){
         expenses.push(expense);
         // localStorage 
         localStorage.setItem('expenses', JSON.stringify(expenses));
-    }
 
-    document.getElementById('expForm').reset();
-    showExpenses();
-}
+        document.getElementById('expForm').reset();
+        showExpenses();
+    });
 
-const showExpenses = () => {
+    function showExpenses(){
 
-    const expenseTable = document.getElementById('expenseTable');
+        const expenseTable = document.getElementById('expenseTable');
 
-    expenseTable.innerHTML = '';
+        expenseTable.innerHTML = '';
 
-    for(let i = 0; i < expenses.length; i++){
-        expenseTable.innerHTML += `
-            <tr>
-                <td>${expenses[i].type}</td>
-                <td>${expenses[i].name}</td>
-                <td>${expenses[i].date}</td>
-                <td>$${expenses[i].amount}</td>
-                <td><a class="deleteButton" onclick="deleteExpense(${expenses[i].id})">
-                    Delete</td>
-            </tr>
-        `;
-    }
-}
+        for(let i = 0; i < expenses.length; i++){
 
-const deleteExpense = (id) => {
-    for(let i = 0; i < expenses.length; i++){
-        if(expenses[i].id == id){
-            expenses.splice(i, 1);
+            const expenseRowEl = document.createElement('TR');
+            expenseTable.appendChild(expenseRowEl);
+
+            const expenseTdTypeEl = document.createElement('TD');
+            expenseTdTypeEl.textContent = expenses[i].type;
+            expenseRowEl.appendChild(expenseTdTypeEl);
+
+            const expenseTdNameEl = document.createElement('TD');
+            expenseTdNameEl.textContent = expenses[i].name;
+            expenseRowEl.appendChild(expenseTdNameEl);
+
+            const expenseTdDateEl = document.createElement('TD');
+            expenseTdDateEl.textContent = expenses[i].date;
+            expenseRowEl.appendChild(expenseTdDateEl);
+
+            const expenseTdAmountEl = document.createElement('TD');
+            expenseTdAmountEl.textContent = '$' + expenses[i].amount;
+            expenseRowEl.appendChild(expenseTdAmountEl);
+
+            const expenseTdOptionsEl = document.createElement('TD');
+            const deleteAnchorEl = document.createElement('A');
+            deleteAnchorEl.className = "deleteButton";
+            deleteAnchorEl.onclick = function(e){
+                deleteExpense(expenses[i].id);
+
+                 // localStorage
+                localStorage.setItem('expenses', JSON.stringify(expenses));
+                showExpenses();
+            }
+
+            deleteAnchorEl.textContent = 'Delete';
+            expenseRowEl.appendChild(deleteAnchorEl);
         }
+
     }
 
-    // localStorage
-    localStorage.setItem('expenses', JSON.stringify(expenses));
-    showExpenses();
-}
+    function deleteExpense(id){
+        for(let i = 0; i < expenses.length; i++){
+            if(expenses[i].id == id){
+                expenses.splice(i, 1);
+            }
+        }
 
-showExpenses();
+       
+    }
+
+    showExpenses();
+
+
+})();
