@@ -2,7 +2,7 @@
 
 _A Expense Tracker application using vanilla javascript._
 
-View live on CodePen <a href="https://codepen.io/marialobillo/pen/ExaazqV" target="_blank">HERE</a>.
+View live on CodePen <a href="https://marialobillo.github.io/expense-tracker-js/" target="_blank">HERE</a>.
 
 <br>
 
